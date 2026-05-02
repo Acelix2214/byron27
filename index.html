@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Byron 27: Escape Protocol</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="game-container">
+    <!-- Main Game Canvas -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- UI Overlay -->
+    <div id="ui-overlay" class="ui-overlay">
+      <!-- Top Left: Chamber & Stats -->
+      <div class="ui-panel top-left">
+        <div class="chamber-display">Chamber <span id="chamber-num">1</span></div>
+        <div class="stat-row">
+          <span class="stat-label">Time:</span>
+          <span class="stat-value" id="time-display">0:00</span>
+        </div>
+      </div>
+
+      <!-- Top Right: KEM Meter -->
+      <div class="ui-panel top-right">
+        <div class="kem-label">KINETIC ENERGY</div>
+        <div class="kem-bar-container">
+          <div class="kem-bar-fill" id="kem-bar"></div>
+          <div class="kem-bar-text" id="kem-text">100</div>
+        </div>
+      </div>
+
+      <!-- Bottom Left: Score & Health -->
+      <div class="ui-panel bottom-left">
+        <div class="stat-row">
+          <span class="stat-label">Score:</span>
+          <span class="stat-value" id="score-display">0</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Health:</span>
+          <span class="stat-value" id="health-display">100</span>
+        </div>
+      </div>
+
+      <!-- Bottom Right: Controls -->
+      <div class="ui-panel bottom-right">
+        <div class="controls-hint" id="controls-hint">
+          <div>A/D - Move | SPACE - Jump | SHIFT - Sprint</div>
+          <div>E - Dash | CTRL - Slide | ESC - Menu</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Menu -->
+    <div id="main-menu" class="menu-screen active">
+      <div class="menu-content">
+        <div class="menu-header">
+          <h1>BYRON 27</h1>
+          <h2>ESCAPE PROTOCOL</h2>
+          <p class="menu-tagline">Escape the laboratory. Defy the system.</p>
+        </div>
+        
+        <div class="menu-buttons">
+          <button class="menu-button primary" id="btn-play">PLAY CAMPAIGN</button>
+          <button class="menu-button secondary" id="btn-continue">CONTINUE</button>
+          <button class="menu-button secondary" id="btn-settings">SETTINGS</button>
+        </div>
+
+        <div class="menu-footer">
+          <p>A fast-paced 2D platformer about escape and momentum</p>
+          <p>Test your skills | Master the Kinetic Energy Meter | Become a speedrunner</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pause-menu" class="menu-screen">
+      <div class="menu-content">
+        <h1>PAUSED</h1>
+        <div class="menu-buttons">
+          <button class="menu-button primary" id="btn-resume">RESUME</button>
+          <button class="menu-button secondary" id="btn-restart">RESTART CHAMBER</button>
+          <button class="menu-button secondary" id="btn-menu">MAIN MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-menu" class="menu-screen">
+      <div class="menu-content">
+        <h1>CHAMBER FAILED</h1>
+        <div class="gameover-stats">
+          <div class="stat-line">
+            <span>Chamber:</span>
+            <span id="gameover-chamber">1</span>
+          </div>
+          <div class="stat-line">
+            <span>Time Survived:</span>
+            <span id="gameover-time">0:00</span>
+          </div>
+          <div class="stat-line">
+            <span>Score:</span>
+            <span id="gameover-score">0</span>
+          </div>
+        </div>
+        <div class="menu-buttons">
+          <button class="menu-button primary" id="btn-retry">TRY AGAIN</button>
+          <button class="menu-button secondary" id="btn-menu-fail">MAIN MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victory-menu" class="menu-screen">
+      <div class="menu-content">
+        <h1>CHAMBER ESCAPED</h1>
+        <div class="gameover-stats">
+          <div class="stat-line">
+            <span>Chamber:</span>
+            <span id="victory-chamber">1</span>
+          </div>
+          <div class="stat-line">
+            <span>Time:</span>
+            <span id="victory-time">0:00</span>
+          </div>
+          <div class="stat-line">
+            <span>Score:</span>
+            <span id="victory-score">0</span>
+          </div>
+        </div>
+        <div class="menu-buttons">
+          <button class="menu-button primary" id="btn-next">NEXT CHAMBER</button>
+          <button class="menu-button secondary" id="btn-menu-victory">MAIN MENU</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
